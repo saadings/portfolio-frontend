@@ -1,0 +1,27 @@
+.tag-decoration{
+    text-decoration: none;
+}
+
+.tag-decoration:hover{
+    text-decoration: none;
+}
+
+.padding-footer{
+    padding-top: 20px;
+    padding-bottom: 40px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.text-color{
+    color: #FFC300;
+}
+
+.background-copy{
+    background-color: #2F2F2F;
+}
+
+.padding-copy{
+    padding: 0;
+    margin: 0;
+}

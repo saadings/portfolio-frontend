@@ -1,0 +1,23 @@
+.input-background{
+    background-color: #FFC300;
+    border: none;
+}
+
+.input-background:focus{
+    background-color: #FFC300;
+    outline: none;
+    border: none;
+}
+
+.message-size{
+    height: 100px;
+}
+
+.padding-contact{
+    padding-top: 75px;
+    padding-bottom: 100px;
+}
+
+.line-width{
+    width: 4px;
+}

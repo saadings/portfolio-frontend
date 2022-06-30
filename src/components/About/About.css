@@ -1,0 +1,16 @@
+.dp-size {
+    width: 32%;
+    height: auto;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dp-size:hover {
+
+    transform: scale(1.06);
+}
+
+.padding-about {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}

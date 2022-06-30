@@ -1,0 +1,33 @@
+.img-size{
+    width: 550px;
+    height: 550px;
+}
+
+.padding-body{
+    padding-top: 235px;
+    padding-bottom: 235px;
+}
+
+.opacity-font{
+    opacity: 0.5;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.opacity-font::selection{
+    background: #FFC300;
+}
+
+.font-simple-body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 43px;
+}
+
+.font-simple-body::selection{
+    color: #FFC300;
+}
+
+.background-body{
+    color: white;
+}

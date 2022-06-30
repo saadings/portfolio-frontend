@@ -1,0 +1,35 @@
+.background-skills{
+    background-color: #2b2b2b;
+}
+
+.cards-color{
+    background-color: #FFC300;
+}
+
+.padding-skills{
+    padding-top: 155px;
+    padding-bottom: 195px;
+}
+
+.select-skills::selection{
+    background-color:  #FFC300;
+    color: #2b2b2b;
+}
+
+.cursor-skills{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cursor-skills:hover{
+    transform: scale(1.06);
+}
+
+.line-height-skills{
+    line-height: 1.03;
+}
+
+.img-size-skills{
+    width: 130px;
+    height: 130px;
+}
