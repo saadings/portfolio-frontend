@@ -1,6 +1,33 @@
 import './Body.css'
+import {useState, useEffect} from "react";
+import axios from "axios";
 
 const Body = () => {
+    const [Title, setTitle] = useState("");
+    const [Body, setBody] = useState("")
+
+    useEffect(() => {
+        (async () => {
+            const URL = "http://localhost:3000/body"
+
+            try {
+                const {data} = await axios.get(URL);
+                console.log(data);
+                setTitle(data.title);
+                setBody(data.bodyText);
+
+            } catch (error) {
+                if (
+                    error.response &&
+                    error.response.status >= 400 &&
+                    error.response.status <= 500
+                ) {
+                    this.setError(error.response.data.message);
+                }
+            }
+        })();
+
+    }, [])
 
     return (
         <>
@@ -29,15 +56,13 @@ const Body = () => {
                 </div>
 
                 <div className={"col-12"}>
-                    <h1 className={"background-body font-simple-body text-center"}>PYTHON DEVELOPER</h1>
+                    <h1 className={"background-body font-simple-body text-center"}>{Title}</h1>
                 </div>
 
                 <div className={"col-12 mt-3 d-flex justify-content-center"}>
                     <div className={"col col-sm-8 col-md-8 col-lg-6 col-xl-4 ms-5 pe-5"}>
                         <p className={"background-body opacity-font text-start"}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur
-                            consequuntur delectus dolorem dolores, ducimus eius eveniet exercitationem fugiat ipsum
-                            libero magni minus numquam placeat rem sequi ullam, ut, vel....
+                            {Body}
                         </p>
                     </div>
                 </div>
