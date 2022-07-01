@@ -1,29 +1,28 @@
 import './Projects.css'
+import {useState, useEffect} from "react";
+import axios from "axios";
 
 const ProjectCards = (props) => {
-
     return (
         <div className={"col-lg-4 col-md-4 col-sm-8 cards-color rounded-3 cursor-skills px-5 py-5 padding-proj"}>
 
             <div className={"d-flex justify-content-start font-size-project line-height-skills"}>
                 <a>
 
-                    <strong className={"select-proj"}> {props.element.Title} </strong>
+                    <strong className={"select-proj"}> {props.element.title} </strong>
 
                 </a>
             </div>
 
             <div className={"d-flex justify-content-start"}>
                 <a>
-                    {props.element.Field}
+                    {props.element.category}
                 </a>
             </div>
 
             <div className={"d-flex justify-content-start mt-3"}>
                 <p className={"text-start line-height-skills select-proj"}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus repellendus
-                    sequi vitae! Eos laboriosam minima quae quos. Beatae dicta dolorem enim, et, fugiat
-                    labore laboriosam libero, officiis perferendis placeat sit?
+                    {props.element.bodyText}
                 </p>
 
             </div>
@@ -34,12 +33,25 @@ const ProjectCards = (props) => {
 
 const Projects = () => {
 
-    const ProjectList = [
-        {"Title": "Face Detection", "Field": "Deep Learning"},
-        {"Title": "Object Classification", "Field": "Machine Learning"},
-        {"Title": "Data Mining", "Field": "Scrapy"},
-        {"Title": "Hotel Management", "Field": "MERN"},
-    ]
+    const [Projects, setProjects] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const URL = "http://localhost:3000/projects";
+                const {data} = await axios.get(URL);
+                setProjects(data);
+            } catch (error) {
+                if (
+                    error.response &&
+                    error.response.status >= 400 &&
+                    error.response.status <= 500
+                ) {
+                    this.setError(error.response.data.message);
+                }
+            }
+        })();
+    }, [])
 
     return (
         <>
@@ -55,7 +67,7 @@ const Projects = () => {
 
                 <div className={"row mt-5 d-flex justify-content-center"}>
 
-                    {ProjectList.map(ProjE => (<ProjectCards element={ProjE}/>))}
+                    {Projects.map(ProjE => (<ProjectCards element={ProjE}/>))}
 
                 </div>
 
