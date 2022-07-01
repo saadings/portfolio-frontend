@@ -19,7 +19,13 @@ const Contact = () => {
                 setBody(data.body);
 
             } catch (error) {
-
+                if (
+                    error.response &&
+                    error.response.status >= 400 &&
+                    error.response.status <= 500
+                ) {
+                    this.setError(error.response.data.message);
+                }
             }
         })();
     }, [])
@@ -109,9 +115,10 @@ const Contact = () => {
                                           required/>
                             </div>
 
-                            {ValidEmail && <button type={"submit"} className={"form-control btn btn-warning select-proj mt-3"}>
-                                Send
-                            </button>}
+                            {ValidEmail &&
+                                <button type={"submit"} className={"form-control btn btn-warning select-proj mt-3"}>
+                                    Send
+                                </button>}
                         </form>
 
                     </div>
