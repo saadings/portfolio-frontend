@@ -1,7 +1,7 @@
 import './Contact.css'
 import {useState, useEffect} from "react";
 import validator from "validator";
-import Axios from '../../services/Axios';
+import Axios from '../../services/Axios.js';
 
 const Contact = () => {
     const [Name, setName] = useState("");

@@ -1,6 +1,6 @@
 import './Skills.css'
 import {useState, useEffect} from "react";
-import Axios from '../../services/Axios';
+import Axios from '../../services/Axios.js';
 
 const SkillCards = (props) => {
     return (

@@ -1,7 +1,7 @@
 import './About.css'
 import DP from '../../imgs/DP.jpg'
 import {useState, useEffect} from "react";
-import Axios from "../../services/Axios";
+import Axios from "../../services/Axios.js";
 
 const About = () => {
     const [Name, setName] = useState("");
