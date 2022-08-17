@@ -1,6 +1,6 @@
 import './Skills.css'
 import {useState, useEffect} from "react";
-import axios from "axios";
+import Axios from '../../services/Axios';
 
 const SkillCards = (props) => {
     return (
@@ -62,8 +62,8 @@ const Skills = () => {
     useEffect(() => {
         (async () => {
             try {
-                const URL = "http://localhost:3000/skills"
-                const {data} = await axios.get(URL);
+                const URL = "/skills"
+                const {data} = await Axios.get(URL);
                 console.log(data)
                 setSkills(data);
             } catch (error) {

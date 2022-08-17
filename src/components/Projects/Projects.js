@@ -1,6 +1,6 @@
 import './Projects.css'
 import {useState, useEffect} from "react";
-import axios from "axios";
+import Axios from '../../services/Axios';
 
 const ProjectCards = (props) => {
     return (
@@ -38,8 +38,8 @@ const Projects = () => {
     useEffect(() => {
         (async () => {
             try {
-                const URL = "http://localhost:3000/projects";
-                const {data} = await axios.get(URL);
+                const URL = "/projects";
+                const {data} = await Axios.get(URL);
                 setProjects(data);
             } catch (error) {
                 if (

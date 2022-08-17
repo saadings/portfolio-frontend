@@ -1,6 +1,6 @@
 import './Body.css'
 import {useState, useEffect} from "react";
-import axios from "axios";
+import Axios from '../../services/Axios';
 
 const Body = () => {
     const [Title, setTitle] = useState("");
@@ -8,10 +8,10 @@ const Body = () => {
 
     useEffect(() => {
         (async () => {
-            const URL = "http://localhost:3000/body"
+            const URL = "/body"
 
             try {
-                const {data} = await axios.get(URL);
+                const {data} = await Axios.get(URL);
                 console.log(data);
                 setTitle(data.title);
                 setBody(data.bodyText);

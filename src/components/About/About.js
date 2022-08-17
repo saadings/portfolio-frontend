@@ -1,7 +1,7 @@
 import './About.css'
 import DP from '../../imgs/DP.jpg'
 import {useState, useEffect} from "react";
-import axios from "axios";
+import Axios from "../../services/Axios";
 
 const About = () => {
     const [Name, setName] = useState("");
@@ -11,8 +11,8 @@ const About = () => {
     useEffect(() => {
         (async () => {
             try {
-                const URL = "http://localhost:3000/about"
-                const {data} = await axios.get(URL);
+                const URL = "/about"
+                const {data} = await Axios.get(URL);
                 setName(data.name);
                 setBody(data.body);
             } catch (error) {

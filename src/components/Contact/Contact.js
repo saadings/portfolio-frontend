@@ -1,7 +1,7 @@
 import './Contact.css'
 import {useState, useEffect} from "react";
-import axios from "axios";
 import validator from "validator";
+import Axios from '../../services/Axios';
 
 const Contact = () => {
     const [Name, setName] = useState("");
@@ -14,8 +14,8 @@ const Contact = () => {
     useEffect(() => {
         (async () => {
             try {
-                const URL = "http://localhost:3000/contact";
-                const {data} = await axios.get(URL);
+                const URL = "/contact";
+                const {data} = await Axios.get(URL);
                 setBody(data.body);
 
             } catch (error) {
@@ -47,7 +47,7 @@ const Contact = () => {
     const HandleSubmit = async (event) => {
 
         try {
-            const URL = "http://localhost:3000/contact";
+            const URL = "/contact";
 
             const Data = {
                 name: Name,
@@ -55,7 +55,7 @@ const Contact = () => {
                 message: Message
             }
 
-            const {data} = await axios.post(URL, Data);
+            const {data} = await Axios.post(URL, Data);
             console.log(data);
 
         } catch (error) {
