@@ -37,7 +37,7 @@ const Contact = () => {
     const HandleEmail = (event) => {
         setFR(true);
         setEmail(event.target.value);
-        validator.isEmail(Email) ? setValidEmail(true) : setValidEmail(false)
+        validator.isEmail(Email.toLocaleLowerCase()) ? setValidEmail(true) : setValidEmail(false)
     }
 
     const HandleMessage = (event) => {
